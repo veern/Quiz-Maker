@@ -1,26 +1,28 @@
-package main.java.com.quizmaker;
+package com.quizmaker;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOError;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FileRead {
-    public void read(String fileName) {
+    public Question read(String fileName) {
+        Question fullQuestion = new Question();
         try {
             File myFile = new File(fileName);
             Scanner myScanner = new Scanner(myFile);
+            String question = myScanner.nextLine();
+            ArrayList<String> answers = new ArrayList<>();
             while (myScanner.hasNextLine()) {
-                String data = myScanner.nextLine();
-                System.out.println(data);
+                answers.add(myScanner.nextLine());
             }
+            fullQuestion.setFullQuestion(question, answers);
             myScanner.close();
         } catch (FileNotFoundException e) {
             System.out.println("No file with given name.");
             e.printStackTrace();
         }
+        return fullQuestion;
     }
 
     public static ArrayList<String> listAllFilesInDirectory(String path) throws NullPointerException {
