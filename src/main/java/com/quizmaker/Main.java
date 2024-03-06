@@ -16,7 +16,7 @@ public class Main {
         textFiles = FileRead.listAllFilesInDirectory(path);
         for (int i = 0; i < textFiles.size(); i++) {
             question = file.read(textFiles.get(i));
-            System.out.println(question);
+            question.displayAnswers();
         }
     }
 }
