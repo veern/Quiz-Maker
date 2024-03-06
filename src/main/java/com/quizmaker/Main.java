@@ -13,6 +13,7 @@ public class Main {
         Scanner terminalInputScanner = new Scanner(System.in);
         System.out.println("Enter the path where the questions are located:");
         path = terminalInputScanner.nextLine();
+        terminalInputScanner.close();
         textFiles = FileRead.listAllFilesInDirectory(path);
         for (String fileName : textFiles) {
             file.read(fileName);
