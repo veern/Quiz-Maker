@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class FileRead {
+public class FileReader {
     public Question read(String fileName) {
         Question fullQuestion = new Question();
         try {
@@ -16,7 +16,8 @@ public class FileRead {
             while (myScanner.hasNextLine()) {
                 answers.add(myScanner.nextLine());
             }
-            fullQuestion.setFullQuestion(question, answers);
+            fullQuestion.setQuestion(question);
+            fullQuestion.setAnswers(answers);
             myScanner.close();
         } catch (FileNotFoundException e) {
             System.out.println("No file with given name.");

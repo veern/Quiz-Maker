@@ -34,6 +34,7 @@ public class Question {
     }
 
     public void displayAnswers() {
+        randomizeAnswers();
         for (String answer : answers) {
             System.out.println(answer);
         }
@@ -41,15 +42,11 @@ public class Question {
 
     public void setAnswers(ArrayList<String> answers) {
         this.answers = answers;
+        this.correctAnswer = this.answers.get(0);
     }
 
     public String getCorrectAnswer() {
         return this.correctAnswer;
-    }
-
-    public void setFullQuestion(String question, ArrayList<String> answers) {
-        setQuestion(question);
-        setAnswers(answers);
     }
 
     public String toString() {
