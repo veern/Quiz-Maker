@@ -42,7 +42,13 @@ public class Quiz {
     }
 
     public int getAmountOfQuestion(Question question) {
-        return Collections.frequency(this.questions, question);
+        int amt = 0;
+        for ( Question quest : this.questions ) {
+            if ( quest.getQuestion().equals(question.getQuestion() ) ) {
+                amt++;
+            }
+        }
+        return amt;
     }
 
     public void loopThroughQuestions() {
